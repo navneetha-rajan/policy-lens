@@ -7,7 +7,7 @@ Market access analysts spend hours opening payer websites, downloading PDFs, and
 normalizing coverage data to answer one question. Policy Lens makes it 10 seconds.
 
 **Stack:** Python 3, FastAPI, React 18, Vite, Tailwind CSS, Claude API,
-PyMuPDF, pdfplumber, ChromaDB, SQLite, Playwright
+PyMuPDF, pdfplumber, SQLite, Playwright
 
 **Scale:** 1400+ policy documents · 84 payer networks · 400+ payers
 
@@ -30,8 +30,7 @@ each one. That takes hours.
   at each payer, beyond binary covered/not covered.
 - **Policy Change Tracker** — Field-level diffs with automatic classification:
   Clinical Major, Clinical Minor, Administrative, or Cosmetic
-- **AI Ask** — RAG pipeline grounded strictly in indexed policy documents. The LLM never
-  answers from general knowledge. Every response cites the source policy document ID.
+- **AI Ask** —  a Natural Language to SQL query translation system powered by a locally hosted LLM. Queries run against a normalized policy schema. Every response cites the source policy document ID.
 
 ---
 
@@ -42,9 +41,7 @@ each one. That takes hours.
 - UPMC 200-page mega-documents requiring drug-level segmentation
 - BCBS web portals with no downloadable PDF, requiring Playwright scraping
 
-PyMuPDF + pdfplumber extract raw text. Claude Sonnet runs entity extraction and normalizes
-nine structured fields per policy. Output is embedded with sentence-transformers,
-stored in ChromaDB for semantic retrieval, and written to a normalized SQLite schema.
+PyMuPDF + pdfplumber extract raw text. Claude Sonnet runs entity extraction and normalizes nine structured fields per policy and written to a normalized SQLite schema.
 
 **Change detection** diffs incoming policy versions field-by-field against stored snapshots.
 An LLM classifier then distinguishes Clinical Major changes from administrative noise.
