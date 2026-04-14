@@ -1,6 +1,8 @@
 # Policy Lens
 > 🏆 Winner · Innovation Hacks 2.0 · Arizona State University · April 2026
 
+![Alt Text](https://github.com/SuhasR3/Policy-Lens/blob/main/policy-lens/demo.jpeg)
+
 **Real-time drug coverage intelligence for market access analysts.**
 
 Market access analysts spend hours opening payer websites, downloading PDFs, and manually
